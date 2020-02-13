@@ -1,5 +1,5 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-	
+    game.over(false)
 })
 controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
     yeet.vy = -100
