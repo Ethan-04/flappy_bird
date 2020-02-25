@@ -1,3 +1,6 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.over(false)
+})
 function Skeet () {
     // Sprite design and insertion
     yeet = sprites.create(img`
@@ -21,9 +24,6 @@ function Skeet () {
     // Controls movement direction of sprite
     yeet.ay = 300
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    game.over(false)
-})
 controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
     // This is made as a jump feature
     yeet.vy = -100
@@ -37,8 +37,10 @@ let yeet: Sprite = null
 // code created in the function
 Skeet()
 game.onUpdateInterval(1500, function () {
+    // Adds 1 point to score
     info.changeScoreBy(1)
-    scene.cameraShake(10, 3000)
+    // Shakes screen to add difficulty
+    scene.cameraShake(7, 3000)
     Gap = Math.randomRange(0, 3)
     if (Gap == 0) {
         bottomImage = img`
